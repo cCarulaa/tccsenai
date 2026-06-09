@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Novo item | Almoxarifado{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Cadastro</p>
+        <h1>Novo item</h1>
+    </div>
+</section>
+
+<form class="form-panel" method="post" enctype="multipart/form-data">
+    <div class="form-grid">
+        <div>
+            <label class="form-label" for="nome">Nome</label>
+            <input class="form-control" id="nome" name="nome" type="text" required maxlength="120">
+        </div>
+
+        <div>
+            <label class="form-label" for="categoria">Categoria</label>
+            <select class="form-select" id="categoria" name="categoria" required>
+                {% for categoria in categories %}
+                <option value="{{ categoria }}">{{ categoria }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label class="form-label" for="quantidade">Quantidade em estoque</label>
+            <input class="form-control" id="quantidade" name="quantidade" type="number" min="0" step="1" required>
+        </div>
+
+        <div>
+            <label class="form-label" for="estoque_minimo">Estoque minimo</label>
+            <input class="form-control" id="estoque_minimo" name="estoque_minimo" type="number" min="0" step="1" required>
+        </div>
+
+        <div>
+            <label class="form-label" for="preco">Preco</label>
+            <input class="form-control" id="preco" name="preco" type="text" inputmode="decimal" placeholder="0,00" required>
+        </div>
+
+        <div>
+            <label class="form-label" for="foto">Foto</label>
+            <input class="form-control js-photo-input" id="foto" name="foto" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+        </div>
+    </div>
+
+    <label class="form-label mt-3" for="descricao">Descricao adicional</label>
+    <textarea class="form-control" id="descricao" name="descricao" rows="4"></textarea>
+
+    <img class="photo-preview" alt="Previa da foto" hidden>
+
+    <div class="action-row">
+        <a class="btn btn-outline-secondary" href="{{ url_for('home') }}">
+            <span data-lucide="arrow-left"></span>
+            Voltar
+        </a>
+        <button class="btn btn-primary" type="submit">
+            <span data-lucide="save"></span>
+            Salvar item
+        </button>
+    </div>
+</form>
+{% endblock %}

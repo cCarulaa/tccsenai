@@ -1,0 +1,245 @@
+:root{
+    --verde:#176b5b;
+    --verde-escuro:#0f4c41;
+    --branco:#fff;
+    --cinza:#f5f7f8;
+    --borda:#ddd;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:var(--cinza);
+}
+
+.login-shell{
+    height:100vh;
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    padding-right:14%;
+
+    background-image:url("/static/img/trabalhadores.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.login-shell::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+}
+
+.login-shell::after{
+    content:"";
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:35%;
+    height:100%;
+
+    background:rgba(255,255,255,.30);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+}
+
+.login-panel{
+    position:relative;
+    z-index:3;
+
+    width:35%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.auth-card{
+    width:220px;
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(10px);
+
+    border:none;
+    border-radius:6px;
+
+    box-shadow:none;
+
+    padding:18px;
+}
+
+.auth-card h2{
+    margin:0 0 18px 0;
+
+    font-size:20px;
+    font-weight:400;
+
+    color:#333;
+}
+
+.auth-card label{
+    display:none;
+}
+
+.auth-card .form-control{
+    width:100%;
+
+    border:none;
+    border-bottom:1px solid #d5d5d5;
+
+    border-radius:0;
+
+    background:transparent;
+
+    padding:6px 2px;
+
+    margin-bottom:12px;
+
+    box-shadow:none;
+}
+
+.auth-card .form-control:focus{
+    border-color:#aaa;
+    box-shadow:none;
+    background:transparent;
+}
+
+.auth-card .btn-danger{
+    width:34px;
+    height:24px;
+
+    padding:0;
+
+    border:none;
+
+    border-radius:3px;
+
+    background:#f57c00;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+.auth-card .btn-danger:hover{
+    background:#e56f00;
+}
+
+.auth-card small{
+    display:none;
+}
+
+
+.page-shell{
+    width:95%;
+    margin:auto;
+    padding:20px;
+}
+
+.page-heading{
+    margin-bottom:20px;
+}
+
+.page-heading h1{
+    font-size:28px;
+}
+
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,
+td{
+    border:1px solid var(--borda);
+    padding:10px;
+}
+
+th{
+    background:#eee;
+}
+
+
+.form-grid{
+    display:grid;
+    gap:15px;
+}
+
+.form-label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.login-shell{
+    height:100vh;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding-right:10%;
+}
+
+.login-box{
+    width:280px;
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 0 20px rgba(0,0,0,.25);
+}
+
+.login-box h2{
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+.login-btn{
+    width:50px;
+    height:35px;
+
+    border:none;
+
+    background:#f57c00;
+    color:white;
+
+    border-radius:4px;
+
+    cursor:pointer;
+}
+
+.login-input{
+    width:100%;
+    height:45px;
+
+    border:none;
+    border-bottom:1px solid #ccc;
+
+    padding:0 10px;
+
+    outline:none;
+
+    background:transparent;
+
+    margin-bottom:15px;
+}

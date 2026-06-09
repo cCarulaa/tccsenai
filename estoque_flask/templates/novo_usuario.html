@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Usuarios | Almoxarifado{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Administrador</p>
+        <h1>Cadastro de usuarios</h1>
+    </div>
+</section>
+
+<section class="split-layout">
+    <form class="form-panel" method="post" autocomplete="off">
+        <label class="form-label" for="username">Usuario</label>
+        <input class="form-control" id="username" name="username" type="text" required maxlength="80">
+
+        <label class="form-label mt-3" for="password">Senha</label>
+        <input class="form-control" id="password" name="password" type="password" required minlength="6">
+
+        <label class="form-label mt-3" for="permissao">Permissao</label>
+        <select class="form-select" id="permissao" name="permissao" required>
+            {% for permissao in permissions %}
+            <option value="{{ permissao }}">{{ permissao }}</option>
+            {% endfor %}
+        </select>
+
+        <div class="action-row">
+            <button class="btn btn-primary" type="submit">
+                <span data-lucide="user-plus"></span>
+                Cadastrar usuario
+            </button>
+        </div>
+    </form>
+
+    <div class="data-panel compact-panel">
+        <h2>Usuarios cadastrados</h2>
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Permissao</th>
+                        <th>Criado em</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario.user }}</td>
+                        <td><span class="category-pill">{{ usuario.permissao }}</span></td>
+                        <td>{{ usuario.criado_em }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3" class="empty-state">Nenhum usuario cadastrado.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

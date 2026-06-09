@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Movimentacao | Almoxarifado{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Entrada e saida</p>
+        <h1>Movimentacao de estoque</h1>
+    </div>
+</section>
+
+<section class="split-layout">
+    <form class="form-panel js-confirm-form" method="post" data-confirm="Registrar esta movimentacao?">
+        <label class="form-label" for="item_id">Item</label>
+        <select class="form-select" id="item_id" name="item_id" required>
+            <option value="" selected disabled>Selecione</option>
+            {% for item in itens %}
+            <option value="{{ item.id }}">{{ item.nome }} - atual: {{ item.quantidade }}</option>
+            {% endfor %}
+        </select>
+
+        <div class="form-grid mt-3">
+            <div>
+                <label class="form-label" for="quantidade">Quantidade</label>
+                <input class="form-control" id="quantidade" name="quantidade" type="number" min="1" step="1" required>
+            </div>
+
+            <div>
+                <label class="form-label" for="tipo">Destino</label>
+                <select class="form-select js-movement-type" id="tipo" name="tipo" required>
+                    <option value="entrada">Entrada</option>
+                    <option value="saida">Saida</option>
+                </select>
+            </div>
+        </div>
+
+        <label class="form-label mt-3" for="finalidade">Finalidade ou uso</label>
+        <textarea class="form-control js-purpose" id="finalidade" name="finalidade" rows="4" placeholder="Aula do professor, reposicao..."></textarea>
+
+        <div class="action-row">
+            <button class="btn btn-primary" type="submit">
+                <span data-lucide="check-circle-2"></span>
+                Registrar
+            </button>
+        </div>
+    </form>
+
+    <div class="data-panel compact-panel">
+        <h2>Ultimas movimentacoes</h2>
+        <div class="history-list">
+            {% for mov in historico %}
+            <div class="history-item">
+                <span class="movement-badge {{ mov.tipo }}">{{ mov.tipo }}</span>
+                <div>
+                    <strong>{{ mov.item_nome }}</strong>
+                    <p>{{ mov.quantidade }} un. - {{ mov.finalidade }}</p>
+                    <small>{{ mov.usuario }} - {{ mov.criado_em }}</small>
+                </div>
+            </div>
+            {% else %}
+            <p class="empty-state">Nenhuma movimentacao registrada.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

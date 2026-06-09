@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+```
+<h2>Produtos Cadastrados</h2>
+
+<a href="{{ url_for('novo_item') }}" class="btn btn-primary mb-3">
+    Novo Produto
+</a>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Foto</th>
+    </tr>
+
+    {% for item in itens %}
+
+    <tr>
+
+        <td>{{ item.nome }}</td>
+
+        <td>{{ item.quantidade }}</td>
+
+        <td>{{ item.categoria }}</td>
+
+        <td>R$ {{ item.preco }}</td>
+
+        <td>
+
+            {% if item.foto %}
+
+            <img
+                src="{{ url_for('static', filename='uploads/' ~ item.foto) }}"
+                width="80">
+
+            {% else %}
+
+            Sem Foto
+
+            {% endif %}
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+```
+
+</div>
+
+{% endblock %}
