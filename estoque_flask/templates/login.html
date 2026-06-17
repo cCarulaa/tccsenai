@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
+{% block nav %}{% endblock %}
+
 {% block content %}
 
-
 <div class="login-shell">
+
+    <div class="login-image"></div>
 
     <div class="login-panel">
 
@@ -12,23 +15,25 @@
             <h2>Login</h2>
 
             <div class="mb-3">
+                <label for="username" class="form-label">Usuário</label>
                 <input
                     type="text"
+                    id="username"
                     name="username"
-                    class="form-control"
-                    placeholder="Usuário">
+                    class="form-control">
             </div>
 
             <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
                 <input
                     type="password"
+                    id="password"
                     name="password"
-                    class="form-control"
-                    placeholder="Senha">
+                    class="form-control">
             </div>
 
             <button type="submit" class="login-btn">
-                →
+                Entrar
             </button>
 
         </form>
@@ -38,3 +43,4 @@
 </div>
 
 {% endblock %}
+
