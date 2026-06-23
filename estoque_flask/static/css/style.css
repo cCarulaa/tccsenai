@@ -1,11 +1,13 @@
 :root{
-    --verde:#176b5b;
-    --verde-escuro:#0f4c41;
     --branco:#fff;
-    --cinza:#f5f7f8;
+    --cinza:#eef1f4;
     --borda:#ddd;
-    --azul-marinho:#1a2a6c;
-    --azul-marinho-escuro:#142156;
+
+    --azul-marinho:#13218b;
+    --azul-marinho-escuro:#0d1860;
+
+    --laranja:#f7941d;
+    --laranja-escuro:#dd7e08;
 }
 
 *{
@@ -20,7 +22,7 @@ body{
 }
 
 
-/* ===== Tela de login ===== */
+/* ===== pagina de login ===== */
 
 .login-shell{
     height:100vh;
@@ -61,6 +63,15 @@ body{
     color:#1a1a2e;
 }
 
+.auth-logo{
+    display:block;
+
+    max-width:160px;
+    height:auto;
+
+    margin-bottom:24px;
+}
+
 .auth-card .form-label{
     display:block;
 
@@ -86,8 +97,8 @@ body{
 }
 
 .auth-card .form-control:focus{
-    border-color:var(--verde);
-    box-shadow:0 0 0 2px rgba(23,107,91,.15);
+    border-color:var(--azul-marinho);
+    box-shadow:0 0 0 2px rgba(19,33,139,.15);
     outline:none;
 }
 
@@ -123,7 +134,7 @@ body{
 }
 
 
-/* ===== Páginas internas (produtos, movimentação, etc.) ===== */
+/* ===== outras paginas (produtos, movimentação, etc.) ===== */
 
 .page-shell{
     width:95%;
@@ -138,11 +149,14 @@ body{
 
 .page-heading h1{
     font-size:28px;
+    color:var(--azul-marinho);
+    font-weight:700;
 }
 
 .page-heading .eyebrow{
     font-size:13px;
-    color:#777;
+    color:var(--laranja);
+    font-weight:700;
     text-transform:uppercase;
     margin-bottom:4px;
 }
@@ -150,7 +164,7 @@ body{
 
 .form-panel{
     max-width:480px;
-    margin:24px;
+    margin:24px auto;
 }
 
 .form-panel .mt-3{
@@ -199,10 +213,6 @@ td{
     padding:10px;
 }
 
-th{
-    background:#eee;
-}
-
 
 .form-grid{
     display:grid;
@@ -215,4 +225,84 @@ th{
     display:block;
     margin-bottom:5px;
     font-weight:bold;
+}
+
+
+/* ===== esquema de cores ===== */
+
+.navbar.bg-dark{
+    background-color:var(--azul-marinho) !important;
+}
+
+.navbar-brand{
+    font-weight:700;
+}
+
+.navbar .btn-light{
+    color:var(--azul-marinho);
+    font-weight:600;
+}
+
+.navbar .btn-light:hover{
+    background:var(--laranja);
+    color:var(--branco);
+}
+
+.navbar .btn-danger{
+    background:var(--laranja);
+    border-color:var(--laranja);
+}
+
+.navbar .btn-danger:hover{
+    background:var(--laranja-escuro);
+    border-color:var(--laranja-escuro);
+}
+
+.btn-primary{
+    background:var(--azul-marinho);
+    border-color:var(--azul-marinho);
+}
+
+.btn-primary:hover{
+    background:var(--azul-marinho-escuro);
+    border-color:var(--azul-marinho-escuro);
+}
+
+.form-panel .form-control:focus,
+.form-panel .form-select:focus{
+    border-color:var(--azul-marinho);
+    box-shadow:0 0 0 2px rgba(19,33,139,.15);
+}
+
+th{
+    background:var(--azul-marinho);
+    color:var(--branco);
+}
+
+.category-pill{
+    display:inline-block;
+    padding:3px 10px;
+    border-radius:12px;
+    background:var(--laranja);
+    color:var(--branco);
+    font-size:13px;
+    font-weight:600;
+}
+
+.item-thumb{
+    border-radius:4px;
+    transition:transform .15s ease;
+}
+
+.item-thumb:hover{
+    transform:scale(1.08);
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+
+#imageModalImg{
+    max-height:60vh;
+    width:auto;
+    max-width:100%;
+    margin:0 auto;
+    display:block;
 }
