@@ -56,7 +56,7 @@ def executar(sql, valores=None):
 def logado():
     return "user_id" in session
 
-@app.context_processor
+@app.context_processor #entrega dados prontos pra todas as páginas do site
 def dados_globais():
     return {
         "categories": CATEGORIES,
@@ -311,11 +311,11 @@ def novo_usuario():
 
 if __name__ == "__main__":
 
-    os.makedirs(
+    os.makedirs( #Ela cria a pasta static/uploads caso ela ainda não exista
         app.config["UPLOAD_FOLDER"],
-        exist_ok=True
+        exist_ok=True #evita erro caso a pasta já exista 
     )
 
     app.run(
-        debug=True
+        debug=True, host='0.0.0.0' #se der erro, mostra a msg detalhada no navegador
     )
